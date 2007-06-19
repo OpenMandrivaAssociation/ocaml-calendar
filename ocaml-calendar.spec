@@ -1,6 +1,6 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
-%define version	1.09.6
+%define version	1.10
 %define release	%mkrel 1
 %define ocaml_sitelib %(if [ -x /usr/bin/ocamlc ]; then ocamlc -where;fi)/site-lib
 
@@ -11,17 +11,17 @@ Summary:	Ocaml calendar library
 License:	GPL
 Group:		Development/Other
 URL:		http://www.lri.fr/~signoles/prog/calendar/
-Source: 	http://www.lri.fr/~signoles/prog/calendar/%{up_name}-%{version}.tar.bz2
-Patch: 	    %{name}-%{version}-destdir.patch
+Source0:	http://www.lri.fr/~signoles/prog/calendar/%{up_name}-%{version}.tar.bz2
+Patch0:		ocaml-calendar-1.09.6-destdir.patch
 BuildRequires:	ocaml
 BuildRequires:	findlib
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 The Calendar library is a library providing a set of operations over dates and
 times.
 
-%package devel
+%package	devel
 Summary:	Development files for %{name}
 Group:		Development/Other
 
