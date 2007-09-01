@@ -1,8 +1,7 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
 %define version	1.10
-%define release	%mkrel 1
-%define ocaml_sitelib %(if [ -x /usr/bin/ocamlc ]; then ocamlc -where;fi)/site-lib
+%define release	%mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -24,6 +23,7 @@ times.
 %package	devel
 Summary:	Development files for %{name}
 Group:		Development/Other
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This package contains the development files needed to build applications
@@ -45,7 +45,13 @@ make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
 %clean
 rm -rf %{buildroot}
 
-%files devel
+%files
 %defattr(-,root,root)
 %doc calendarFAQ-2.6.txt calendar_faq.txt CHANGES COPYING LGPL README TODO
-%{ocaml_sitelib}/calendar
+%dir %{ocaml_sitelib}/calendar
+%{ocaml_sitelib}/calendar/*.cmi
+
+%files devel
+%defattr(-,root,root)
+%{ocaml_sitelib}/calendar/*
+%exclude %{ocaml_sitelib}/calendar/*.cmi
