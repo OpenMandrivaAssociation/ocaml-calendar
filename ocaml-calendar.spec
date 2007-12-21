@@ -14,6 +14,7 @@ Source0:	http://www.lri.fr/~signoles/prog/calendar/%{up_name}-%{version}.tar.bz2
 Patch0:		ocaml-calendar-1.09.6-destdir.patch
 BuildRequires:	ocaml
 BuildRequires:	findlib
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 The Calendar library is a library providing a set of operations over dates and
