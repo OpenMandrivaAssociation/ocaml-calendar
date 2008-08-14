@@ -1,7 +1,7 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
-%define version	1.10
-%define release	%mkrel 5
+%define version	2.0.4
+%define release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -11,7 +11,6 @@ License:	GPL
 Group:		Development/Other
 URL:		http://www.lri.fr/~signoles/prog/calendar/
 Source0:	http://www.lri.fr/~signoles/prog/calendar/%{up_name}-%{version}.tar.bz2
-Patch0:		ocaml-calendar-1.09.6-destdir.patch
 BuildRequires:	ocaml
 BuildRequires:	findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
@@ -31,7 +30,6 @@ using %{name}.
 
 %prep
 %setup -q -n %{up_name}-%{version}
-%patch
 
 %build
 %configure2_5x
@@ -40,7 +38,7 @@ using %{name}.
 %install
 rm -rf %{buildroot}
 install -d -m 755 %{buildroot}/%{ocaml_sitelib}
-make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
+make install OCAMLFIND_DESTDIR="%{buildroot}/%{ocaml_sitelib}"
 
 %clean
 rm -rf %{buildroot}
