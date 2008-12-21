@@ -1,7 +1,7 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
 %define version	2.0.4
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 Name:		%{name}
 Version:	%{version}
@@ -48,8 +48,10 @@ rm -rf %{buildroot}
 %doc calendarFAQ-2.6.txt calendar_faq.txt CHANGES COPYING LGPL README TODO
 %dir %{ocaml_sitelib}/calendar
 %{ocaml_sitelib}/calendar/*.cmi
+%{ocaml_sitelib}/calendar/*.cmo
 
 %files devel
 %defattr(-,root,root)
 %{ocaml_sitelib}/calendar/*
 %exclude %{ocaml_sitelib}/calendar/*.cmi
+%exclude %{ocaml_sitelib}/calendar/*.cmo
