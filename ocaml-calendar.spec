@@ -1,7 +1,7 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
 %define version	2.0.4
-%define release	%mkrel 3
+%define release	%mkrel 4
 
 Name:		%{name}
 Version:	%{version}
@@ -12,7 +12,7 @@ Group:		Development/Other
 URL:		http://www.lri.fr/~signoles/prog/calendar/
 Source0:	http://www.lri.fr/~signoles/prog/calendar/%{up_name}-%{version}.tar.bz2
 BuildRequires:	ocaml
-BuildRequires:	findlib
+BuildRequires:	ocaml-findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -37,8 +37,8 @@ using %{name}.
 
 %install
 rm -rf %{buildroot}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}
-make install OCAMLFIND_DESTDIR="%{buildroot}/%{ocaml_sitelib}"
+install -d -m 755 %{buildroot}%{_libdir}/ocaml
+make install OCAMLFIND_DESTDIR="%{buildroot}%{_libdir}/ocaml"
 
 %clean
 rm -rf %{buildroot}
@@ -46,12 +46,12 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc calendarFAQ-2.6.txt calendar_faq.txt CHANGES COPYING LGPL README TODO
-%dir %{ocaml_sitelib}/calendar
-%{ocaml_sitelib}/calendar/*.cmi
-%{ocaml_sitelib}/calendar/*.cmo
+%dir %{_libdir}/ocaml/calendar
+%{_libdir}/ocaml/calendar/*.cmi
+%{_libdir}/ocaml/calendar/*.cmo
 
 %files devel
 %defattr(-,root,root)
-%{ocaml_sitelib}/calendar/*
-%exclude %{ocaml_sitelib}/calendar/*.cmi
-%exclude %{ocaml_sitelib}/calendar/*.cmo
+%{_libdir}/ocaml/calendar/*
+%exclude %{_libdir}/ocaml/calendar/*.cmi
+%exclude %{_libdir}/ocaml/calendar/*.cmo
