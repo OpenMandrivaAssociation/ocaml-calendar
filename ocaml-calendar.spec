@@ -9,7 +9,7 @@ Release:	%{release}
 Summary:	Ocaml calendar library
 License:	GPL
 Group:		Development/Other
-URL:		http://calendar.forge.ocamlcore.org/
+URL:		http://forge.ocamlcore.org/projects/calendar/
 Source0:	http://forge.ocamlcore.org/frs/download.php/173/%{up_name}-%{version}.tar.gz
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib
@@ -34,6 +34,8 @@ using %{name}.
 %build
 %configure2_5x
 %make
+sed -i -e 's/calendarLib.cmo //g' META
+sed -i -e 's/calendarLib.cmx //g' META
 
 %install
 rm -rf %{buildroot}
