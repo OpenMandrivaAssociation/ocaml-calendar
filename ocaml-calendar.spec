@@ -1,7 +1,7 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
-%define version	2.01.1
-%define release	%mkrel 3
+%define version	2.02
+%define release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -10,7 +10,7 @@ Summary:	Ocaml calendar library
 License:	GPL
 Group:		Development/Other
 URL:		http://forge.ocamlcore.org/projects/calendar/
-Source0:	http://forge.ocamlcore.org/frs/download.php/173/%{up_name}-%{version}.tar.gz
+Source0:	http://forge.ocamlcore.org/frs/download.php/333/%{up_name}-%{version}.tar.gz
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
