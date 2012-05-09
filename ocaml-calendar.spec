@@ -1,7 +1,7 @@
 %define up_name	calendar
 %define name	ocaml-%{up_name}
 %define version	2.02
-%define release	%mkrel 1
+%define release	2
 
 Name:		%{name}
 Version:	%{version}
