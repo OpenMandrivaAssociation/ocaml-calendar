@@ -9,7 +9,7 @@ Release:	%{release}
 Summary:	Ocaml calendar library
 License:	GPL
 Group:		Development/Other
-URL:		http://forge.ocamlcore.org/projects/calendar/
+URL:		https://forge.ocamlcore.org/projects/calendar/
 Source0:	http://forge.ocamlcore.org/frs/download.php/333/%{up_name}-%{version}.tar.gz
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib
